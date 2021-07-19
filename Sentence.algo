@@ -1,0 +1,56 @@
+ALGORITHM sentencedetector
+VAR
+    st : STRING;
+    n , n1 , n2 : INTEGER := 0;
+    i , j , k : INTEGER;
+BEGIN
+    Write ('Please enter a sentence ending with .')
+    Read(st);
+    //length of sentence
+
+    i := 0
+    WHILE ( st[i] <> '' ) DO
+    i := i + 1
+    n := n + 1
+    END_WHILE
+    //number of chars
+
+IF ( st[n-1] = '.') THEN
+
+    FOR j FROM 0 TO n-1 STEP 1  DO
+        IF (st[j] = ' ') THEN
+            n1 := n1 + 1
+        END_IF
+    END_FOR
+    n1 := n1 + 1
+
+   
+    //numbers of vowers
+    FOR k FROM 0 TO n-1 STEP 1  DO
+       SWITCH (st[k]) DO
+       case 'a' : n2 := n2 + 1 ; BREAK;
+	   case 'e' : n2 := n2 + 1 ; BREAK;
+       case 'i' : n2 := n2 + 1 ; BREAK;
+	   case 'o' : n2 := n2 + 1 ; BREAK;
+	   case 'u' : n2 := n2 + 1 ; BREAK;
+	   case 'A' : n2 := n2 + 1 ; BREAK;
+	   case 'E' : n2 := n2 + 1 ; BREAK;
+	   case 'I' : n2 := n2 + 1 ; BREAK;
+	   case 'O' : n2 := n2 + 1 ; BREAK;
+	   case 'U' : n2 := n2 + 1 ; BREAK;
+       default :   
+       END_SWITCH
+    END_FOR
+
+
+ELSE
+    Write ('Please enter a valid sentence that ends with .')
+
+
+END_IF
+
+    Write('The length of the sentence' , n);
+    Write('The number of words in the sentence' , n1);
+    Write('The number of vowels in the sentence.' , n2);
+
+END
