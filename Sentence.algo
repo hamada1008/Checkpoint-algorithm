@@ -17,7 +17,9 @@ BEGIN
     BREAK;
     END_IF
     END_WHILE
-    n := n + 1 // length of sentence = number of character + 1 ('.' length)
+    n := n + 1 
+    // length of sentence = number of character + 1 ('.' length)
+    
    
     
 
@@ -51,7 +53,7 @@ ELSE
     Write ('Please enter a valid sentence that ends with .')
 
 END_IF
-
+//-- i can initialize n & n1 values to 1 but since they are counters, its best if we gave the 0 as value 
     Write('The length of the sentence' , n);
     Write('The number of words in the sentence' , n1);
     Write('The number of vowels in the sentence.' , n2);
