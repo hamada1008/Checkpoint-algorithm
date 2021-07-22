@@ -1,39 +1,27 @@
 ALGORITHM sentencedetector
 VAR
-    st : STRING;
+    c : CHAR;
     n , n1 , n2 : INTEGER := 0;
-    i , j  : INTEGER;
-BEGIN
-    Write ('Please enter a sentence ending with .')
-    Read(st);
-    //length of sentence
 
-    i := 0
-    WHILE ( st[i] <> '') DO
-    IF (st[i] <> '.' ) THEN 
-    i := i + 1
-    n := n + 1 
-    ELSE
-    BREAK;
-    END_IF
-    END_WHILE
-    n := n + 1 
-    // length of sentence = number of character + 1 ('.' length)
+BEGIN
+  
     
    
-    
+REPEAT
+  Write('Please enter a character');
+  Read(c);
 
-    //number of charcters
+    IF (c <> '') THEN 
+    n := n + 1 ;
+    END_IF //returns length of the sentence - number of spaces & the dot are included in the length
 
-IF ( st[n-1] = '.') THEN
 
-    FOR j FROM 0 TO n-1 STEP 1  DO
-        IF (st[j] = ' ') THEN
-            n1 := n1 + 1
-        END_IF
-        n1 := n1 + 1 //number of words = number of spaces + 1
-        //numbers of vowers
-       SWITCH (st[j]) DO
+
+    IF (c = ' ') THEN
+    n1 := n1 + 1;
+    END_IF //returns then number of words in the sentence
+
+    SWITCH (c) DO
        case 'a' : n2 := n2 + 1 ; BREAK;
 	   case 'e' : n2 := n2 + 1 ; BREAK;
        case 'i' : n2 := n2 + 1 ; BREAK;
@@ -45,17 +33,19 @@ IF ( st[n-1] = '.') THEN
 	   case 'O' : n2 := n2 + 1 ; BREAK;
 	   case 'U' : n2 := n2 + 1 ; BREAK;
        default :   
-       END_SWITCH
-    END_FOR
-    
+    END_SWITCH //returns the number of vowels in the sentence
 
-ELSE
-    Write ('Please enter a valid sentence that ends with .')
 
-END_IF
-//-- i can initialize n & n1 values to 1 but since they are counters, its best if we gave the 0 as value 
+UNTIL (c = '.');
+
+    n1 := n1 + 1 ; //number of words = number of spaces + 1
     Write('The length of the sentence' , n);
     Write('The number of words in the sentence' , n1);
     Write('The number of vowels in the sentence.' , n2);
+    
 
 END
+
+
+
+  
